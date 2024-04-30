@@ -1,3 +1,5 @@
+import java.util.List;
+import java.util.ArrayList;
 
 public class Fibonacci {
     /**
@@ -15,6 +17,24 @@ public class Fibonacci {
      * @return the nth number of fibonacci sequence.
      */
     public int fib(int n){
-        return 0;
+        if(n == 0)
+        {
+            return 0;
+        }
+        if(n == 1)
+        {
+            return 1;
+        }
+
+        List<Integer> sequence = new ArrayList<>();
+        sequence.add(0);
+        sequence.add(1);
+
+        for(int i = 2; i <= n; i++)
+        {
+            sequence.add(sequence.get(i-1) + sequence.get(i-2));
+        }
+
+        return sequence.get(n);
     }
 }
